@@ -19,16 +19,12 @@ class ExpenseRepository(abc.ABC):
 
 
 class ExpenseService:
-    def __init__(self, repository: ExpenseRepository):
+    def __init__(self, repository):
         self._repository = repository
         self._next_id = 1
 
     def create_expense(
-        self,
-        title: str,
-        amount: float,
-        description: str = "",
-        expense_date: date = None,
+        self, title: str, amount: float, description: str, expense_date: date,
     ) -> None:
         if expense_date is None:
             expense_date = date.today()
