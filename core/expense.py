@@ -1,8 +1,8 @@
-from core.domain_error import EmptyTitleError, InvalidAmountError, InvalidExpenseDateError
 from dataclasses import dataclass
 from datetime import date
 
 from core.domain_error import (
+    EmptyTitleError,
     InvalidAmountError,
     InvalidExpenseDateError,
 )
@@ -16,8 +16,7 @@ class Expense:
     description: str
     expense_date: date
 
-    def __post_init__(self):
-        
+    def __post_init__(self) -> None:
         if not self.title or self.title.strip() == "":
             raise EmptyTitleError("El título no puede estar vacío")
         
@@ -26,5 +25,5 @@ class Expense:
 
         if self.expense_date > date.today():
             raise InvalidExpenseDateError(
-                "La fecha del gasto no puede ser posterior a hoy"
+                "La fecha del gasto no puede ser posterior a hoy",
             )
