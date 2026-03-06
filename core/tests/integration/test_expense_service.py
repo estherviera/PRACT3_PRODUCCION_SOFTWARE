@@ -84,8 +84,12 @@ def test_create_multiple_expenses_and_list():
     """
     service = create_service()
 
-    service.create_expense(title="Pan", amount=3, description="Mercado", expense_date=date.today())
-    service.create_expense(title="Leche", amount=4, description="Supermercado", expense_date=date.today())
+    service.create_expense(
+        title="Pan", amount=3, description="Mercado", expense_date=date.today()
+    )
+    service.create_expense(
+        title="Leche", amount=4, description="Supermercado", expense_date=date.today()
+    )
 
     expenses = service.list_expenses()
 
@@ -118,7 +122,9 @@ def test_update_expense_partial_fields():
     """
     service = create_service()
 
-    service.create_expense(title="Camiseta", amount=15, description="Ropa", expense_date=date.today())
+    service.create_expense(
+        title="Camiseta", amount=15, description="Ropa", expense_date=date.today()
+    )
 
     # Actualizamos solo el monto
     service.update_expense(expense_id=1, amount=18)
