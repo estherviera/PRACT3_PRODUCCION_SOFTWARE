@@ -22,7 +22,6 @@ class ExpenseService:
     def __init__(self, repository: ExpenseRepository):
         self._repository = repository
         self._next_id = 1
-        expenses = self._repository.list_all()
 
     def create_expense(
         self,
