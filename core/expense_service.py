@@ -24,7 +24,11 @@ class ExpenseService:
         self._next_id = 1
 
     def create_expense(
-        self, title: str, amount: float, description: str = "" , expense_date: date | None = None,
+        self,
+        title: str,
+        amount: float,
+        description: str = "",
+        expense_date: date | None = None,
     ) -> None:
         if expense_date is None:
             expense_date = date.today()
