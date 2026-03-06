@@ -19,7 +19,7 @@ class ExpenseRepository(abc.ABC):
 
 
 class ExpenseService:
-    def __init__(self, repository:ExpenseRepository):
+    def __init__(self, repository: ExpenseRepository):
         self._repository = repository
         self._next_id = 1
 
